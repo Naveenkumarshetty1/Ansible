@@ -1,0 +1,26 @@
+[web_servers]
+server1
+server2
+server3
+...
+server20
+
+
+---
+- name: Install nginx on web servers
+  hosts: web_servers
+  become: true
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: latest
+
+
+
+ansible-playbook -i servers.txt install_nginx.yml -f 20
