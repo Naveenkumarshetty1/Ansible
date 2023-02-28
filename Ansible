@@ -1,0 +1,62 @@
+#Launch 3 servers 
+#switch to user (sudo su)/(sudo -i)
+#add user & password & new pwd, retype pwd 
+====================================================
+ubuntu@ip
+sudo su
+adduser nvn
+passwd nvn
+new pwd
+retype pwd
+cd /etc/ssh
+ls
+vi sshd.config
+#password authentication No---Yes
+service sshd restart 
+visudo
+#add user after ec2-user ALL=(ALL) NOPASS=
+
+                nvn      ALL=(ALL) NOPASS=
+                
+Login to node1 and node2 repeat the above process
+
+==================================================
+SSH COMMUNICATION:
+login  to ansible machine 
+nvn
+nvn@123
+ssh-keygen 
+enter4 times
+ssh-copy-id (ansible private ip)
+ssh-copy-id (node1 private ip)
+ssh-copy-id (node2 private ip)
+=====================================
+Installing Ansible :
+
+sudo apt-get update
+sudo apt-get install ansible
+
+ansible --version
+cd /etc
+ls
+cd ansible/
+ls
+vi ansible.conf
+------------------
+#inventory 
+#sudo-user  remove # save & quit 
+--------------------
+vi hosts
+\remove all data enter ipv4 of servers 
+[local]
+3.201.234
+[Dev]
+4.203.354
+[Test]
+9.012.344
+[Prod]
+9.398.432
+save&quit
+--------------------------
+ansible all -m ping 
+                
