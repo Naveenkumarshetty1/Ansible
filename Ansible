@@ -18,6 +18,9 @@ visudo
 
                 nvn      ALL=(ALL) NOPASS=
                 
+ansible ALL=(ALL)   NOPASSWD: ALL
+
+                
 Login to node1 and node2 repeat the above process
 
 ==================================================
