@@ -8,6 +8,16 @@ adduser nvn
 passwd nvn
 new pwd
 retype pwd
+========================================
+  1  adduser ansible
+    2  passwd ansible
+    3  cd /etc/ssh
+    4  ls
+    5  vi sshd_config
+    6  /bin/systemctl restart sshd.service
+    7  visudo
+    8  history 
+    ===================================================
 cd /etc/ssh
 ls
 vi sshd.config
